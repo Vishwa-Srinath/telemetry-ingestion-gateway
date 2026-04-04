@@ -1,9 +1,7 @@
-import dotenv from "dotenv";
+import "dotenv/config";
 import express, { NextFunction, Request, Response } from "express";
 
 import telemetryRouter from "./routes/telemetry";
-
-dotenv.config();
 
 const app = express();
 const port = Number.parseInt(process.env.PORT || "3000", 10);
@@ -19,7 +17,7 @@ app.get("/health", (_req: Request, res: Response) => {
   });
 });
 
-app.use("/api", telemetryRouter);
+app.use("/api/v1", telemetryRouter);
 
 app.use((_req: Request, res: Response) => {
   res.status(404).json({ ok: false, error: "Route not found." });

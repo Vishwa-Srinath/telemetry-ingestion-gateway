@@ -5,7 +5,7 @@ export interface TelemetryReadingInput {
 }
 
 export interface TelemetryReadingRow {
-  device_id: string;
+  sensor_id: string;
   value: number;
-  recorded_at: string;
+  timestamp: string;
 }
