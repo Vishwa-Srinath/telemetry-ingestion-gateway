@@ -52,9 +52,9 @@ const normalizeReading = (
   return {
     ok: true,
     row: {
-      device_id: candidate.device_id,
+      sensor_id: `${candidate.device_id}_resistor`,
       value: candidate.value,
-      recorded_at: recordedAt,
+      timestamp: recordedAt,
     },
   };
 };
@@ -111,6 +111,6 @@ export const ingestTelemetryBatch = async (req: Request, res: Response): Promise
   res.status(201).json({
     ok: true,
     inserted: rows.length,
-    devices: Array.from(new Set(rows.map((row) => row.device_id))),
+    sensors: Array.from(new Set(rows.map((row) => row.sensor_id))),
   });
 };
