@@ -9,7 +9,7 @@ if (!supabaseUrl || !supabaseServiceRoleKey) {
   );
 }
 
-export const readingsTableName = process.env.SUPABASE_READINGS_TABLE || "readings";
+export const readingsTableName = process.env.SUPABASE_READINGS_TABLE || "sensor_readings";
 
 export const supabase = createClient(supabaseUrl, supabaseServiceRoleKey, {
   auth: {
